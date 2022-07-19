@@ -3,11 +3,11 @@ from flask_socketio import SocketIO, emit
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from curr_conv.Config import config
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/orders'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object(config)
 db = SQLAlchemy(app)
 ma = Marshmallow()
 socketio = SocketIO(app, cors_allowed_origins='*', async_mode='eventlet')

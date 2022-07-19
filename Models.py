@@ -5,7 +5,7 @@ import datetime
 
 
 class Order(db.Model):
-    __tablename__ = "ordertable"
+    __tablename__ = "order_table"
     id = db.Column(db.Integer, primary_key=True)
     order_id = db.Column(db.Integer, unique=True)
     usd = db.Column(db.Float)
